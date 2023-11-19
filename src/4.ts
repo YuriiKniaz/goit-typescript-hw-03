@@ -27,7 +27,7 @@ abstract class House{
     }
 
     comeIn(person: Person): void {
-        if (!this.door) {
+        if (this.door) {
             this.tenants.push(person)
         }
     }
@@ -37,7 +37,7 @@ abstract class House{
 
 class MyHouse extends House{
     openDoor(key: Key): void {
-        if (key === this.key) {
+        if (key.getSignature() === this.key.getSignature()) {
             this.door = true;
             
         }
